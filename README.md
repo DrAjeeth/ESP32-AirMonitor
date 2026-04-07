@@ -1,4 +1,4 @@
-# ESP Air Monitor
+# ESP indoor climate monitor
 
 ## Project Overview
 
