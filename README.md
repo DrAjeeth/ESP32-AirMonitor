@@ -1,8 +1,8 @@
-# ESP indoor climate monitor
+# Indoor Climate Monitor
 
 ## Project Overview
 
-ESP Air Monitor is an IoT-based environmental monitoring system that measures temperature and humidity in real-time. The repository now includes ESP32 firmware modes plus an ESP8266 ESPHome mode for direct Home Assistant integration.
+Indoor Climate Monitor is an IoT-based environmental monitoring system that measures temperature and humidity in real-time. The repository includes ESP32 firmware modes plus an ESP8266 ESPHome mode for direct Home Assistant integration.
 
 ## Features
 
@@ -43,7 +43,7 @@ ESP Air Monitor is an IoT-based environmental monitoring system that measures te
 - Manual time setting through web interface
 
 **WiFi Credentials**:
-- SSID: `ESP32_AirMonitor`
+- SSID: `ESP32_IndoorClimate`
 - Password: `12345678`
 - Access URL: Local IP address displayed on device
 
@@ -62,7 +62,7 @@ ESP Air Monitor is an IoT-based environmental monitoring system that measures te
 - Native Home Assistant integration through the ESPHome API
 - OTA updates and fallback captive portal
 - DHT22 entities appear directly inside Home Assistant
-- Configuration lives in `ESPHome_HA_Mode/air_monitor_esp8266_dht22.yaml`
+- Configuration lives in `ESPHome_HA_Mode/indoor_climate_monitor_esp8266_dht22.yaml`
 
 ## Quick Start
 
@@ -72,10 +72,10 @@ ESP Air Monitor is an IoT-based environmental monitoring system that measures te
 2. **Select Operating Mode**:
    - For AP Mode: Upload `AP_Mode/src/main.cpp`
    - For Cloud Mode: Upload `Cloud_Mode/src/main.cpp`
-   - For ESPHome + HA Mode: Flash `ESPHome_HA_Mode/air_monitor_esp8266_dht22.yaml`
+   - For ESPHome + HA Mode: Flash `ESPHome_HA_Mode/indoor_climate_monitor_esp8266_dht22.yaml`
 3. **Power On**: Device will start in selected mode
 4. **Access Data**:
-   - AP Mode: Connect to `ESP32_AirMonitor` WiFi and open local IP in browser
+   - AP Mode: Connect to `ESP32_IndoorClimate` WiFi and open local IP in browser
    - Cloud Mode: Monitor via Adafruit IO dashboard
    - ESPHome + HA Mode: Add the device in Home Assistant via the ESPHome integration
 

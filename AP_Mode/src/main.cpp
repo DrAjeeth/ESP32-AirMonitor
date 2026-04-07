@@ -4,7 +4,7 @@
 #include "DHT.h"
 
 // ================= ACCESS POINT =================
-const char* ssid = "ESP32_AirMonitor";
+const char* ssid = "ESP32_IndoorClimate";
 const char* password = "12345678";
 
 WebServer server(80);
@@ -103,7 +103,7 @@ String getHTML() {
 
   html += "</head><body>";
 
-  html += "<h2>🌡 ESP32 Air Monitor</h2>";
+  html += "<h2>Indoor Climate Monitor</h2>";
 
   html += "<div class='card'>Temp: " + String(temp) + " °C</div>";
   html += "<div class='card'>Humidity: " + String(hum) + " %</div>";

@@ -1,16 +1,16 @@
 substitutions:
-  device_name: airmonitor-esp8266
-  friendly_name: Air Monitor ESP8266
+  device_name: indoor-climate-monitor-esp8266
+  friendly_name: Indoor Climate Monitor
   dht_pin: D2
   dht_update_interval: 30s
 
 esphome:
   name: ${device_name}
   friendly_name: ${friendly_name}
-  comment: ESP8266 NodeMCU air monitor with DHT22 and Home Assistant integration
+  comment: ESP8266 NodeMCU indoor climate monitor with DHT22 and Home Assistant integration
   min_version: 2024.6.0
   project:
-    name: ajmo.air_monitor
+    name: ajmo.indoor_climate_monitor
     version: "esphome-ha-dht22-v1"
 
 esp8266:
