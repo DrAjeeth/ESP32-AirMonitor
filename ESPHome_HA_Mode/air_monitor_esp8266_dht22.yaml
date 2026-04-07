@@ -1,0 +1,74 @@
+substitutions:
+  device_name: airmonitor-esp8266
+  friendly_name: Air Monitor ESP8266
+  dht_pin: D2
+  dht_update_interval: 30s
+
+esphome:
+  name: ${device_name}
+  friendly_name: ${friendly_name}
+  comment: ESP8266 NodeMCU air monitor with DHT22 and Home Assistant integration
+  min_version: 2024.6.0
+  project:
+    name: ajmo.air_monitor
+    version: "esphome-ha-dht22-v1"
+
+esp8266:
+  board: nodemcuv2
+
+logger:
+
+api:
+  encryption:
+    key: !secret api_encryption_key
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  min_auth_mode: WPA2
+  ap:
+    ssid: "${friendly_name} Fallback"
+    password: !secret fallback_ap_password
+
+captive_portal:
+
+sensor:
+  - platform: dht
+    pin: ${dht_pin}
+    model: DHT22
+    temperature:
+      name: "${friendly_name} Temperature"
+      device_class: temperature
+      state_class: measurement
+      accuracy_decimals: 1
+    humidity:
+      name: "${friendly_name} Humidity"
+      device_class: humidity
+      state_class: measurement
+      accuracy_decimals: 1
+    update_interval: ${dht_update_interval}
+
+  - platform: wifi_signal
+    name: "${friendly_name} WiFi Signal"
+    update_interval: 60s
+
+  - platform: uptime
+    name: "${friendly_name} Uptime"
+    update_interval: 60s
+
+binary_sensor:
+  - platform: status
+    name: "${friendly_name} Status"
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: "${friendly_name} IP Address"
+    ssid:
+      name: "${friendly_name} Connected SSID"
+    mac_address:
+      name: "${friendly_name} MAC Address"

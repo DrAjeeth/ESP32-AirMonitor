@@ -1,5 +1,7 @@
 .vscode/
 build/
+.esphome-build/
 *.bin
 *.elf
 *.log
+**/secrets.yaml
